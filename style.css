@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  perspective: 1000px; /* cria o efeito 3D */
+}
+
+.message-box {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transform: translateZ(-600px) scale(0.2); /* começa longe e pequeno */
+  animation: zoomIn 3s ease forwards;
+  opacity: 0;
+}
+
+.message-box h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #8b3a62;
+  margin-bottom: 15px;
+  animation: fadeText 2s ease forwards 1s;
+  opacity: 0;
+}
+
+.message-box p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  animation: fadeText 2s ease forwards 2s;
+  opacity: 0;
+}
+
+/* Animações */
+@keyframes zoomIn {
+  from { transform: translateZ(-600px) scale(0.2); opacity: 0; }
+  to { transform: translateZ(0) scale(1); opacity: 1; }
+}
+
+@keyframes fadeText {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
